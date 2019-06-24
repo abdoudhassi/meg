@@ -67,7 +67,7 @@ func (r response) save(pathPrefix string, noHeaders bool) (string, error) {
 		content = []byte(r.StringNoHeaders())
 	}
 
-	checksum := sha1.Sum([]byte(r.request.path))
+	checksum := sha1.Sum([]byte(r.request.URL()))
 	parts := []string{pathPrefix}
 
 	parts = append(parts, r.request.Hostname())
